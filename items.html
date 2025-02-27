@@ -3,24 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ritual TTRPG - Bestiary</title>
+  <title>Ritual TTRPG - Items</title>
   <link rel="stylesheet" href="src/styles.css" />
-  <!-- Inline auth check -->
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
     const SUPABASE_URL = 'https://evutzmgyoqnlsihcgcog.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2dXR6bWd5b3FubHNpaGNnY29nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA2NDI2MzEsImV4cCI6MjA1NjIxODYzMX0.9D5nTnVLlBUZG-dPb3uTbV3usLnQ3c9fFVVdVOzhHDM';
     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // Redirect to sign-in if not authenticated
     (async () => {
       const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        window.location.href = 'index.html';
-      }
+      if (!session) window.location.href = 'index.html';
     })();
   </script>
 </head>
+
 <body>
   <header>
     <nav class="navbar">
@@ -39,8 +35,340 @@
   </header>
 
   <main class="container">
-    <h1>Bestiary</h1>
-    <p>Placeholder content for the Shop page, where a list of items and treasure will be displayed.</p>
+    <h1>Shop Catalogue</h1>
+    
+    <!-- Weapons Section -->
+    <section class="category">
+      <h2>Weapons</h2>
+      <div class="items-grid">
+        <div class="item-card">
+          <h3>Longsword</h3>
+          <p>A substantial blade perfect for heavy combat.</p>
+          <p>This weapon requires proficiency.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Damage</td>
+                <td>1d8</td>
+              </tr>
+              <tr>
+                <td>Weight</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>Melee</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="item-card">
+          <h3>Shortsword</h3>
+          <p>A small blade usable by anyone.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Damage</td>
+                <td>1d4+1</td>
+              </tr>
+              <tr>
+                <td>Weight</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>Melee</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="item-card">
+          <h3>Dagger</h3>
+          <p>A concealable knife usable by anyone.</p>
+          <p>This weapon ignores 10 armor.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Damage</td>
+                <td>1d4</td>
+              </tr>
+              <tr>
+                <td>Weight</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>Melee</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="item-card">
+          <h3>Handaxe</h3>
+          <p>A small but sharp axe that can rend armor.</p>
+          <p>This weapon requires training.</p> 
+          <p>This weapon reduces enemy armor by five on a hit.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Damage</td>
+                <td>1d6</td>
+              </tr>
+              <tr>
+                <td>Weight</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>Melee</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="item-card">
+          <h3>Shortbow</h3>
+          <p>A small and silent stringed ranged weapon.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Damage</td>
+                <td>1d6</td>
+              </tr>
+              <tr>
+                <td>Weight</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>300 feet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="item-card">
+          <h3>Longbow</h3>
+          <p>A powerful and heavy stringed ranged weapon.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Damage</td>
+                <td>1d8</td>
+              </tr>
+              <tr>
+                <td>Weight</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>600 feet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="item-card">
+          <h3>Revolver</h3>
+          <p>A compact and reliable firearm.</p>
+          <p>Reload: Every six shots you must reload with an action.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Damage</td>
+                <td>1d6+1</td>
+              </tr>
+              <tr>
+                <td>Weight</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>150 feet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="item-card">
+          <h3>Musket</h3>
+          <p>A powerful and large firearm.</p>
+          <p>Reload: between each shot you must reload with an action.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Damage</td>
+                <td>1d8+2</td>
+              </tr>
+              <tr>
+                <td>Weight</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>300 feet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="item-card">
+          <h3>Mace</h3>
+          <p>A weighted, blunt, instrument of war.</p>
+          <p>This weapon requires training.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Damage</td>
+                <td>1d6+1</td>
+              </tr>
+              <tr>
+                <td>Weight</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>Melee</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="item-card">
+          <h3>Spear</h3>
+          <p>A pointed shard of metal on a long stick.</p>
+          <p>This weapon requires training.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Damage</td>
+                <td>1d6</td>
+              </tr>
+              <tr>
+                <td>Weight</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>10 feet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        
+
+        <!-- Add more weapon cards as needed -->
+      </div>
+    </section>
+
+    <!-- Items Section -->
+    <section class="category">
+      <h2>Items</h2>
+      <div class="items-grid">
+        <div class="item-card">
+          <h3>Healing Potion</h3>
+          <p>Restores 1d4+1 health in battle.</p>
+        </div>
+        <div class="item-card">
+          <h3>Auran Scroll</h3>
+          <p>Contains an arcane spell with mysterious effects.</p>
+        </div>
+        <div class="item-card">
+          <h3>Compass</h3>
+          <p>Contains a magnetic needle that always points North.</p>
+        </div>
+        <div class="item-card">
+          <h3>Rope</h3>
+          <p>15 feet of sturdy woven rope.</p>
+        </div>
+        <div class="item-card">
+          <h3>Pack</h3>
+          <p>A cloth and leather sack to carry and protect your goods.</p>
+        </div>
+        <!-- Add more item cards as needed -->
+      </div>
+    </section>
+
+    <!-- Armor Section -->
+    <section class="category">
+      <h2>Armor</h2>
+      <div class="items-grid">
+        <div class="item-card">
+          <h3>Steel Shield</h3>
+          <p>Increases armor by ten when carried, if proficient.</p>
+        </div>
+        <div class="item-card">
+          <h3>Light Armor</h3>
+          <p>Increases armor of the wearer by ten, if proficient.</p>
+        </div>
+        <div class="item-card">
+          <h3>Medium Armor</h3>
+          <p>Increases armor of the wearer by fifteen, if proficient.</p>
+          <p>Adds 1d6 to dexterity Auran trials.</p>
+        </div>
+        <div class="item-card">
+          <h3>buckler</h3>
+          <p>Increases armor of the wearer by five, if proficient.</p>
+          <p>Can only wear one. Does not require a free hand.</p>
+        </div>
+        <!-- Add more armor cards as needed -->
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -49,7 +377,6 @@
     </div>
   </footer>
 
-  <!-- Include any additional JS files if needed -->
   <script type="module" src="src/index.js"></script>
 </body>
 </html>
