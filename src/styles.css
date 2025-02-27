@@ -1,27 +1,34 @@
-/* styles.css */
+/* src/styles.css */
 
-/* Import fonts: Cinzel for a medieval, fantasy feel and Roboto for a clean modern look */
+/* Import fonts: Cinzel for headers, Roboto for body text */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
-* {
-  box-sizing: border-box;
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #1a1a1a; /* deep dark background */
-  color: #f0f0f0; /* light text for contrast */
+  background-color: #1a1a1a; /* Deep dark background */
+  color: #f0f0f0;
   line-height: 1.6;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content should take up remaining space */
+main {
+  flex: 1;
   padding: 2rem;
 }
 
-/* Headings evoke the fantasy vibe with Cinzel */
+/* Headings using a fantasy-style font */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Cinzel', serif;
   margin-bottom: 1rem;
-  color: #e0b27a; /* warm, slightly aged gold tone */
+  color: #e0b27a;
   text-shadow: 1px 1px 2px #000;
 }
 
@@ -35,7 +42,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Form styling for a modern, clean look */
+/* Form styling for a modern look */
 form {
   background: rgba(255, 255, 255, 0.05);
   padding: 1.5rem;
@@ -84,91 +91,77 @@ button:hover {
   background-color: #b35e1f;
 }
 
+/* Navigation Bar */
+.navbar {
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #333;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: #e0b27a;
+  text-decoration: none;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar .nav-links li a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar .nav-links li a:hover {
+  color: #d17a22;
+}
+
+/* Footer */
+.footer {
+  background-color: #2a2a2a;
+  border-top: 1px solid #333;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer p {
+  color: #f0f0f0;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
 /* Container for centering content */
 .container {
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* Utility classes */
-.text-center {
-  text-align: center;
+/* Auth form specifics */
+.auth-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.mt-1 {
-  margin-top: 1rem;
-}
-
-.mt-2 {
-  margin-top: 2rem;
-}
-
-.mb-1 {
-  margin-bottom: 1rem;
-}
-
-.mb-2 {
-  margin-bottom: 2rem;
-}
-
-/* Card style for content sections */
-.card {
+.auth-box {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #333;
   border-radius: 8px;
   padding: 1rem;
-  margin-bottom: 1.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Navigation Bar */
-.navbar {
-    background-color: #2a2a2a;
-    border-bottom: 1px solid #333;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
-  }
-  
-  .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .navbar .logo {
-    font-family: 'Cinzel', serif;
-    font-size: 1.5rem;
-    color: #e0b27a;
-    text-decoration: none;
-  }
-  
-  .navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-  
-  .navbar .nav-links li a {
-    color: #f0f0f0;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .navbar .nav-links li a:hover {
-    color: #d17a22;
-  }
-  
-  /* Footer */
-  .footer {
-    background-color: #2a2a2a;
-    border-top: 1px solid #333;
-    padding: 1rem 0;
-    text-align: center;
-    margin-top: 2rem;
-  }
-  
-  .footer p {
-    color: #f0f0f0;
-    font-size: 0.875rem;
-    margin: 0;
-  }
+.form-group {
+  margin-bottom: 1rem;
+}

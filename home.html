@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ritual - Home</title>
+  <title>Ritual TTRPG - Home</title>
   <link rel="stylesheet" href="src/styles.css" />
+  <!-- Inline auth check -->
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+    const SUPABASE_URL = 'https://YOUR-PROJECT-REF.supabase.co';
+    const SUPABASE_ANON_KEY = 'YOUR-ANON-KEY';
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Redirect to sign-in if not authenticated
+    (async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        window.location.href = 'index.html';
+      }
+    })();
+  </script>
 </head>
 <body>
   <header>
@@ -25,7 +40,7 @@
   <main class="container">
     <h1>Welcome to Ritual TTRPG</h1>
     <p>This is your hub for all things dark and medieval—with a modern twist.</p>
-    <!-- Add your page content here -->
+    <!-- Your protected content goes here -->
   </main>
 
   <footer class="footer">
@@ -34,7 +49,7 @@
     </div>
   </footer>
 
-  <!-- Load your authentication JS (if needed) -->
+  <!-- Include any additional JS files if needed -->
   <script type="module" src="src/index.js"></script>
 </body>
 </html>
