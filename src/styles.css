@@ -6,25 +6,36 @@
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #1a1a1a; /* Deep dark background */
+  background-color: #1a1a1a;
   color: #f0f0f0;
   line-height: 1.6;
-  padding: 0;
   display: flex;
   flex-direction: column;
 }
 
-/* Main content takes up the remaining space */
-main {
-  flex: 1;
-  padding: 2rem;
+header, footer {
+  width: 100%;
 }
 
-/* Headings using a fantasy-style font */
+main {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+/* Container: fluid with a max-width and horizontal padding for a natural fit */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0; /* Left aligned */
+}
+
+/* Headings using Cinzel for that fantasy vibe */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Cinzel', serif;
   margin-bottom: 1rem;
@@ -42,28 +53,22 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Form styling for a modern look */
+/* Form styling */
 form {
   background: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
+  padding: 2rem;
   margin-bottom: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
+/* Input fields: padded and styled */
 input[type="email"],
 input[type="password"],
 input[type="text"] {
   width: 100%;
-  padding: 0.75rem;
+  padding: 1rem;
   margin-bottom: 1rem;
-  margin-right: 0.5rem;
   border: 1px solid #333;
   border-radius: 4px;
   background-color: #2a2a2a;
@@ -73,7 +78,7 @@ input[type="text"] {
 input:focus {
   outline: none;
   border-color: #d17a22;
-  box-shadow: 0 0 5px rgba(209, 122, 34, 0.5);
+  box-shadow: 0 0 5px rgba(209,122,34,0.5);
 }
 
 /* Button styling */
@@ -106,14 +111,6 @@ button:hover {
   align-items: center;
 }
 
-/* Updated container: left aligned instead of centered */
-.container {
-  max-width: 800px;
-  margin: 0;          /* Remove auto-centering */
-  padding-left: 1rem; /* Optional: adds a bit of left padding */
-}
-
-/* Navigation bar link styles */
 .navbar .logo {
   font-family: 'Cinzel', serif;
   font-size: 1.5rem;
@@ -137,7 +134,7 @@ button:hover {
   color: #d17a22;
 }
 
-/* Footer */
+/* Footer: sticky at the bottom */
 .footer {
   background-color: #2a2a2a;
   border-top: 1px solid #333;
@@ -151,23 +148,22 @@ button:hover {
   margin: 0;
 }
 
-/* Auth form specifics */
+/* Auth section specifics */
 .auth-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .auth-box {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 2rem;       /* Increased padding for more space */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 600px;    /* Caps the width so it doesn't stretch too far */
-    min-width: 400px;    /* Ensures a minimum width so forms aren’t squished */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.auth-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 600px;
+  min-width: 400px;
+}
 
 .form-group {
   margin-bottom: 1rem;
@@ -175,34 +171,46 @@ button:hover {
 
 /* Table Styling */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2rem 0;
-    font-family: 'Roboto', sans-serif;
-    border: 1px solid #333;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid #333;
+}
+
+table tr {
+  background-color: #1a1a1a;
+}
+
+table tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+table th,
+table td {
+  border: 1px solid #333;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+table th {
+  background-color: #2a2a2a;
+  color: #e0b27a;
+  font-family: 'Cinzel', serif;
+}
+
+table tr:hover {
+  background-color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .auth-box {
+    min-width: auto;
+    max-width: 100%;
   }
-  
-  /* Generic table row styling */
-  table tr {
-    background-color: #1a1a1a; /* Base row background */
+  .navbar .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  
-  table tr:nth-child(even) {
-    background-color: #2a2a2a; /* Alternate row background */
-  }
-  
-  table th, table td {
-    border: 1px solid #333;
-    padding: 0.75rem;
-    text-align: left;
-  }
-  
-  table th {
-    background-color: #2a2a2a; /* Header background */
-    color: #e0b27a;
-    font-family: 'Cinzel', serif;
-  }
-  
-  table tr:hover {
-    background-color: #333; /* Hover effect */
-  }
+}
