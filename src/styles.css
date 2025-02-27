@@ -1,0 +1,122 @@
+/* styles.css */
+
+/* Import fonts: Cinzel for a medieval, fantasy feel and Roboto for a clean modern look */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #1a1a1a; /* deep dark background */
+  color: #f0f0f0; /* light text for contrast */
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+/* Headings evoke the fantasy vibe with Cinzel */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
+  margin-bottom: 1rem;
+  color: #e0b27a; /* warm, slightly aged gold tone */
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* Link styles */
+a {
+  color: #d17a22;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Form styling for a modern, clean look */
+form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+}
+
+input:focus {
+  outline: none;
+  border-color: #d17a22;
+  box-shadow: 0 0 5px rgba(209, 122, 34, 0.5);
+}
+
+/* Button styling */
+button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #d17a22;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #b35e1f;
+}
+
+/* Container for centering content */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+/* Card style for content sections */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
