@@ -120,3 +120,55 @@ button:hover {
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
+
+/* Navigation Bar */
+.navbar {
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #333;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+  }
+  
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar .logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: #e0b27a;
+    text-decoration: none;
+  }
+  
+  .navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .navbar .nav-links li a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navbar .nav-links li a:hover {
+    color: #d17a22;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #2a2a2a;
+    border-top: 1px solid #333;
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .footer p {
+    color: #f0f0f0;
+    font-size: 0.875rem;
+    margin: 0;
+  }

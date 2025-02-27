@@ -3,29 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
-  <link rel="stylesheet" href="src/styles.css" />
+  <title>Ritual - Home</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Welcome Home</h1>
-  <p>If you're seeing this, you are logged in.</p>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="home.html" class="logo">Ritual TTRPG</a>
+        <ul class="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="bestiary.html">Bestiary</a></li>
+          <li><a href="characters.html">Characters</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-  <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+  <main class="container">
+    <h1>Welcome to GrimFantasy TTRPG</h1>
+    <p>This is your hub for all things dark and medieval—with a modern twist.</p>
+    <!-- Add your page content here -->
+  </main>
 
-    // Replace with your actual Supabase project details.
-    const SUPABASE_URL = 'https://evutzmgyoqnlsihcgcog.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2dXR6bWd5b3FubHNpaGNnY29nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA2NDI2MzEsImV4cCI6MjA1NjIxODYzMX0.9D5nTnVLlBUZG-dPb3uTbV3usLnQ3c9fFVVdVOzhHDM';
-    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 GrimFantasy TTRPG. All rights reserved.</p>
+    </div>
+  </footer>
 
-    // Check for an active session
-    (async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        // Redirect unauthorized users to the sign-in page.
-        window.location.href = 'index.html';
-      }
-    })();
-  </script>
+  <!-- Load your authentication JS (if needed) -->
+  <script type="module" src="src/index.js"></script>
 </body>
 </html>
