@@ -152,17 +152,21 @@ button:hover {
 
 /* Auth form specifics */
 .auth-section {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.auth-box {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .auth-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2rem;       /* Increased padding for more space */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 600px;    /* Caps the width so it doesn't stretch too far */
+    min-width: 400px;    /* Ensures a minimum width so forms aren’t squished */
+  }
+  
 
 .form-group {
   margin-bottom: 1rem;
