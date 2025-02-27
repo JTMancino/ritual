@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Sign Up Error:', error.message);
         alert(`Sign Up Error: ${error.message}`);
       } else {
-        console.log('Sign Up Successful:', data.user);
+        // console.log('Sign Up Successful:', data.user);
         alert('Sign up successful! Check your email to confirm your account if necessary.');
       }
     });
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Login Error:', error.message);
         alert(`Login Error: ${error.message}`);
       } else {
-        console.log('Login Successful:', data.user);
+        // console.log('Login Successful:', data.user);
         alert('Login successful!');
         // Redirect to the home page (or update the UI as needed)
         window.location.href = 'home.html';
