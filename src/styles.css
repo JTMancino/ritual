@@ -172,3 +172,38 @@ button:hover {
 .form-group {
   margin-bottom: 1rem;
 }
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  table thead tr {
+    background-color: #2a2a2a; /* Dark header background */
+  }
+  
+  table th, table td {
+    border: 1px solid #333;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  table th {
+    color: #e0b27a; /* Warm, aged gold text for headers */
+    font-family: 'Cinzel', serif;
+  }
+  
+  table tbody tr {
+    background-color: #1a1a1a; /* Base row background */
+  }
+  
+  table tbody tr:nth-child(even) {
+    background-color: #2a2a2a; /* Alternate row background */
+  }
+  
+  table tbody tr:hover {
+    background-color: #333; /* Slight highlight on hover */
+  }
