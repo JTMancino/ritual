@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritual TTRPG - Bestiary</title>
+  <link rel="stylesheet" href="src/styles.css" />
+  <!-- Inline auth check -->
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+    const SUPABASE_URL = 'https://evutzmgyoqnlsihcgcog.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2dXR6bWd5b3FubHNpaGNnY29nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA2NDI2MzEsImV4cCI6MjA1NjIxODYzMX0.9D5nTnVLlBUZG-dPb3uTbV3usLnQ3c9fFVVdVOzhHDM';
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Redirect to sign-in if not authenticated
+    (async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        window.location.href = 'index.html';
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="home.html" class="logo">Ritual TTRPG</a>
+        <ul class="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="bestiary.html">Bestiary</a></li>
+          <li><a href="characters.html">Characters</a></li>
+          <li><a href="lore.html">Lore</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Bestiary</h1>
+    <p>Placeholder content for the Bestiary page.</p>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Ritual TTRPG. All
