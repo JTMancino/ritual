@@ -46,6 +46,7 @@
         card.classList.add('character-card');
         card.innerHTML = `
           <h2>${character.name}</h2>
+          <p><strong>Level:</strong> ${character.current_level || 'N/A'}</p>
           <p><strong>Race:</strong> ${character.race || 'N/A'}</p>
           <p><strong>Class:</strong> ${character.class || 'N/A'} ${character.subclass ? '(' + character.subclass + ')' : ''}</p>
           <a href="characterview.html?id=${character.id}">Edit Character</a>
