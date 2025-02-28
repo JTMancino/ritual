@@ -41,7 +41,7 @@
         <legend>Basic Info</legend>
         <label for="char-name">Name:</label>
         <input type="text" id="char-name" name="name" required />
-
+        <br>
         <label for="char-backstory">Backstory:</label>
         <textarea id="char-backstory" name="backstory" rows="4" placeholder="Enter your character's backstory"></textarea>
       </fieldset>
@@ -129,6 +129,7 @@
         max_health: parseInt(formData.get('max_health')),
         current_focus: parseInt(formData.get('max_focus')),
         max_focus: parseInt(formData.get('max_focus')),
+        armor: 50,
         race: formData.get('race'),
         class: formData.get('class'),
         subclass: 'None',
@@ -139,6 +140,10 @@
           intelligence: parseInt(formData.get('intelligence')),
           Willpower: parseInt(formData.get('Willpower')),
           charisma: parseInt(formData.get('charisma'))
+        },
+        inventory: {
+          pack:1,
+          dagger:1
         }
       };
 

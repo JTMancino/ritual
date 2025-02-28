@@ -8,13 +8,15 @@ CREATE TABLE IF NOT EXISTS characters (
   user_id uuid REFERENCES auth.users NOT NULL,
   name text NOT NULL,
   backstory text,
-  current_health integer DEFAULT 0,
-  max_health integer DEFAULT 0,
-  current_focus integer DEFAULT 0,
-  max_focus integer DEFAULT 0,
+  current_health integer DEFAULT 4,
+  max_health integer DEFAULT 4,
+  current_focus integer DEFAULT 1,
+  max_focus integer DEFAULT 1,
+  armor text,
   race text,
   class text,
   subclass text,
   ability_points jsonb,  -- Example: {"brawn":10, "dexterity":10, ...}
+  inventory jsonb,  -- Example: {"light armor":1, "torch":3, ...}
   created_at timestamp with time zone DEFAULT now()
 );
