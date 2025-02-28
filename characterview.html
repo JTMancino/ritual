@@ -72,6 +72,7 @@
         const updatedData = {
           name: document.getElementById('char-name').value,
           backstory: document.getElementById('char-backstory').value,
+          current_level: parseInt(document.getElementById('current-level').value),
           current_health: parseInt(document.getElementById('current-health').value),
           max_health: parseInt(document.getElementById('max-health').value),
           current_focus: parseInt(document.getElementById('current-focus').value),
@@ -134,8 +135,8 @@
       <!-- Health & Focus Trackers -->
       <fieldset>
         <legend>Health & Focus</legend>
-        <label for="current_level">Level:</label>
-        <input type="number" id="current_level" name="current_level" min="1" required>
+        <label for="current-level">Level:</label>
+        <input type="number" id="current-level" name="current-level" min="1" required>
         <br>
         <label for="current-health">Current Health:</label>
         <input type="number" id="current-health" name="current_health" min="0" required>
