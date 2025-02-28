@@ -145,7 +145,8 @@
         inventory: {
           pack:1,
           dagger:1
-        }
+        },
+        user_id: session.user.id
       };
 
       const { data, error } = await supabase
