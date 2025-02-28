@@ -64,11 +64,11 @@
         <label for="race">Race:</label>
         <select id="race" name="race" required>
           <option value="">Select Race</option>
-          <option value="human">Firstborn (Human)</option>
-          <option value="earthspawn">Earthspawn</option>
-          <option value="skyspawn">Skyspawn</option>
-          <option value="seaspawn">Seaspawn</option>
-          <option value="flamespawn">Flamespawn</option>
+          <option value="Human">Firstborn (Human)</option>
+          <option value="Earthspawn">Earthspawn</option>
+          <option value="Skyspawn">Skyspawn</option>
+          <option value="Seaspawn">Seaspawn</option>
+          <option value="Flamespawn">Flamespawn</option>
           <!-- More races as needed -->
         </select>
 
@@ -134,12 +134,11 @@
         class: formData.get('class'),
         subclass: 'None',
         ability_points: {
-          brawn: parseInt(formData.get('brawn')),
-          dexterity: parseInt(formData.get('dexterity')),
-          constitution: parseInt(formData.get('constitution')),
-          intelligence: parseInt(formData.get('intelligence')),
+          brawn: parseInt(formData.get('Brawn')),
+          dexterity: parseInt(formData.get('Dexterity')),
+          intelligence: parseInt(formData.get('Intelligence')),
           Willpower: parseInt(formData.get('Willpower')),
-          charisma: parseInt(formData.get('charisma'))
+          charisma: parseInt(formData.get('Charisma'))
         },
         inventory: {
           pack:1,
