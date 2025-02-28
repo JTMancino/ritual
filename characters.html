@@ -122,6 +122,7 @@
       e.preventDefault();
 
       const formData = new FormData(form);
+      const { data: { session } } = await supabase.auth.getSession();
       const characterData = {
         name: formData.get('name'),
         backstory: formData.get('backstory'),
