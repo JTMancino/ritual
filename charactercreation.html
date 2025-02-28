@@ -90,20 +90,18 @@
         <p>You have a pool of 50 points to distribute among these abilities:</p>
         <label for="brawn">Brawn:</label>
         <input type="number" id="brawn" name="brawn" min="1" max="51" value="1" required />
-
+        <br>
         <label for="dexterity">Dexterity:</label>
         <input type="number" id="dexterity" name="dexterity" min="1" max="51" value="1" required />
-
+        <br>
         <label for="intelligence">Intelligence:</label>
         <input type="number" id="intelligence" name="intelligence" min="1" max="51" value="1" required />
-
+        <br>
         <label for="Willpower">Willpower:</label>
         <input type="number" id="Willpower" name="Willpower" min="1" max="51" value="1" required />
-
+        <br>
         <label for="charisma">Charisma:</label>
         <input type="number" id="charisma" name="charisma" min="1" max="51" value="1" required />
-
-        <p>Total allocated: <span id="allocated-total">50</span> points</p>
       </fieldset>
 
       <button type="submit">Create Character</button>
@@ -147,9 +145,7 @@
           pack:1,
           dagger:1
         },
-        scars: {
-
-        },
+        scars: {},
         user_id: session.user.id
       };
 
@@ -160,9 +156,8 @@
       if (error) {
         alert('Error updating character: ' + JSON.stringify(error));
       } else {
-        alert('Character created successfully!');
         // Optionally redirect to a character list or details page
-        window.location.href = 'home.html';
+        window.location.href = 'characterslist.html';
       }
     });
   </script>
