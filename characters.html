@@ -28,7 +28,7 @@
           <li><a href="bestiary.html">Bestiary</a></li>
           <li><a href="lore.html">Lore</a></li>
           <li><a href="items.html">Items</a></li>
-          <li><a href="characters.html">Characters</a></li>
+          <li><a href="characterview.html">Characters</a></li>
         </ul>
       </div>
     </nav>
@@ -152,7 +152,7 @@
         .insert([characterData]);
 
       if (error) {
-        alert('Error creating character: ' + error.message);
+        alert('Error updating character: ' + JSON.stringify(error));
       } else {
         alert('Character created successfully!');
         // Optionally redirect to a character list or details page

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ritual TTRPG - Edit Character</title>
+  <link rel="stylesheet" href="src/styles.css" />
+  <script type="module">
+    // Import and create the Supabase client.
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+    const SUPABASE_URL = 'https://YOUR-PROJECT-REF.supabase.co';
+    const SUPABASE_ANON_KEY = 'YOUR-ANON-KEY';
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Check authentication before loading page.
+    (async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        window.location.href = 'index.html';
+      }
+    })();
+
+    // Helper to extract query parameters.
+    function getQueryParam(param) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(param);
+    }
+
+    const characterId = getQueryParam('id');
+
+    // Load the character's data and populate the form.
+    async function loadCharacter() {
+      if (!characterId) {
+        alert('No character ID provided.');
+        return;
+      }
+      const { data, error } = await supabase
+        .from('characters')
+        .select('*')
+        .eq('id', characterId)
+        .single();
+      if (error) {
+        console.error('Error loading character:', error);
+        alert('Error loading character data.');
+        return;
+      }
+      // Populate form fields.
+      document.getElementById('char-id').value = data.id;
+      document.getElementById('char-name').value = data.name;
+      document.getElementById('char-backstory').value = data.backstory || '';
+      document.getElementById('current-health').value = data.current_health;
+      document.getElementById('max-health').value = data.max_health;
+      document.getElementById('current-focus').value = data.current_focus;
+      document.getElementById('max-focus').value = data.max_focus;
+      document.getElementById('armor').value = data.armor || '';
+      document.getElementById('race').value = data.race || '';
+      document.getElementById('class').value = data.class || '';
+      document.getElementById('subclass').value = data.subclass || '';
+      // Stringify JSON fields for display.
+      document.getElementById('ability_points').value = JSON.stringify(data.ability_points, null, 2);
+      document.getElementById('inventory').value = JSON.stringify(data.inventory, null, 2);
+    }
+
+    // Wait for the DOM to load, then initialize.
+    window.addEventListener('DOMContentLoaded', () => {
+      loadCharacter();
+
+      // Handle form submission to update the character.
+      const form = document.getElementById('character-form');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const updatedData = {
+          name: document.getElementById('char-name').value,
+          backstory: document.getElementById('char-backstory').value,
+          current_health: parseInt(document.getElementById('current-health').value),
+          max_health: parseInt(document.getElementById('max-health').value),
+          current_focus: parseInt(document.getElementById('current-focus').value),
+          max_focus: parseInt(document.getElementById('max-focus').value),
+          armor: document.getElementById('armor').value,
+          race: document.getElementById('race').value,
+          class: document.getElementById('class').value,
+          subclass: document.getElementById('subclass').value,
+          ability_points: JSON.parse(document.getElementById('ability_points').value),
+          inventory: JSON.parse(document.getElementById('inventory').value)
+        };
+
+        const { data, error } = await supabase
+          .from('characters')
+          .update(updatedData)
+          .eq('id', characterId);
+
+        if (error) {
+          console.error('Error updating character:', error);
+          alert('Error updating character: ' + error.message);
+        } else {
+          alert('Character updated successfully!');
+          // Optionally, redirect or refresh the page.
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="home.html" class="logo">Ritual TTRPG</a>
+        <ul class="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="bestiary.html">Bestiary</a></li>
+          <li><a href="items.html">Shop</a></li>
+          <li><a href="lore.html">Lore</a></li>
+          <li><a href="characterview.html">Characters</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <h1>Edit Character</h1>
+    <form id="character-form">
+      <!-- Hidden field to hold character ID -->
+      <input type="hidden" id="char-id" name="id">
+      <!-- Basic Info -->
+      <fieldset>
+        <legend>Basic Info</legend>
+        <label for="char-name">Name:</label>
+        <input type="text" id="char-name" name="name" required>
+
+        <label for="char-backstory">Backstory:</label>
+        <textarea id="char-backstory" name="backstory" rows="4"></textarea>
+      </fieldset>
+      <!-- Health & Focus Trackers -->
+      <fieldset>
+        <legend>Health & Focus</legend>
+        <label for="current-health">Current Health:</label>
+        <input type="number" id="current-health" name="current_health" min="0" required>
+
+        <label for="max-health">Max Health:</label>
+        <input type="number" id="max-health" name="max_health" min="1" required>
+
+        <label for="current-focus">Current Focus:</label>
+        <input type="number" id="current-focus" name="current_focus" min="0" required>
+
+        <label for="max-focus">Max Focus:</label>
+        <input type="number" id="max-focus" name="max_focus" min="1" required>
+      </fieldset>
+      <!-- Attributes & Equipment -->
+      <fieldset>
+        <legend>Attributes & Equipment</legend>
+        <label for="armor">Armor:</label>
+        <input type="text" id="armor" name="armor">
+
+        <label for="race">Race:</label>
+        <input type="text" id="race" name="race">
+
+        <label for="class">Class:</label>
+        <input type="text" id="class" name="class">
+
+        <label for="subclass">Subclass:</label>
+        <input type="text" id="subclass" name="subclass">
+      </fieldset>
+      <!-- Ability Points & Inventory (JSON Editing) -->
+      <fieldset>
+        <legend>Ability Points & Inventory</legend>
+        <label for="ability_points">Ability Points (JSON):</label>
+        <textarea id="ability_points" name="ability_points" rows="5"></textarea>
+
+        <label for="inventory">Inventory (JSON):</label>
+        <textarea id="inventory" name="inventory" rows="5"></textarea>
+      </fieldset>
+      <button type="submit">Update Character</button>
+    </form>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Ritual TTRPG. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- Optionally, you can remove this if your supabase client is shared -->
+  <script type="module" src="src/index.js"></script>
+</body>
+</html>
