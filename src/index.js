@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Login Error:', error.message);
         alert(`Login Error: ${error.message}`);
       } else {
-        // console.log('Login Successful:', data.user);
-        alert('Login successful!');
+        console.log('Login Successful:', data.user);
+        // alert('Login successful!');
         // Redirect to the home page (or update the UI as needed)
         window.location.href = 'home.html';
       }
