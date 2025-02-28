@@ -48,7 +48,7 @@
           <h2>${character.name}</h2>
           <p><strong>Race:</strong> ${character.race || 'N/A'}</p>
           <p><strong>Class:</strong> ${character.class || 'N/A'} ${character.subclass ? '(' + character.subclass + ')' : ''}</p>
-          <a href="character_display.html?id=${character.id}">Edit Character</a>
+          <a href="characterview.html?id=${character.id}">Edit Character</a>
         `;
         listContainer.appendChild(card);
       });
@@ -75,7 +75,7 @@
   <main class="container">
     <h1>Your Characters</h1>
     <!-- Link to the character creation page -->
-    <a href="character_creation.html" class="create-character">Create New Character</a>
+    <a href="charactercreation.html" class="create-character">Create New Character</a>
     <div id="character-list">
       <p>Loading characters...</p>
     </div>
