@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritual TTRPG - Your Characters</title>
+  <link rel="stylesheet" href="src/styles.css">
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+    const SUPABASE_URL = 'https://evutzmgyoqnlsihcgcog.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2dXR6bWd5b3FubHNpaGNnY29nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA2NDI2MzEsImV4cCI6MjA1NjIxODYzMX0.9D5nTnVLlBUZG-dPb3uTbV3usLnQ3c9fFVVdVOzhHDM';
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Check authentication before proceeding.
+    (async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      // Load all characters owned by the current user.
+      const userId = session.user.id;
+      const { data, error } = await supabase
+        .from('characters')
+        .select('*')
+        .eq('user_id', userId);
+      
+      const listContainer = document.getElementById('character-list');
+      listContainer.innerHTML = ''; // Clear loading message
+
+      if (error) {
+        console.error('Error fetching characters:', error);
+        listContainer.innerHTML = '<p>Error loading characters.</p>';
+        return;
+      }
+      
+      if (!data || data.length === 0) {
+        listContainer.innerHTML = '<p>No characters found. Create one!</p>';
+        return;
+      }
+      
+      // Create a card for each character.
+      data.forEach(character => {
+        const card = document.createElement('div');
+        card.classList.add('character-card');
+        card.innerHTML = `
+          <h2>${character.name}</h2>
+          <p><strong>Race:</strong> ${character.race || 'N/A'}</p>
+          <p><strong>Class:</strong> ${character.class || 'N/A'} ${character.subclass ? '(' + character.subclass + ')' : ''}</p>
+          <a href="character_display.html?id=${character.id}">Edit Character</a>
+        `;
+        listContainer.appendChild(card);
+      });
+    })();
+  </script>
+
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="home.html" class="logo">Ritual TTRPG</a>
+        <ul class="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="bestiary.html">Bestiary</a></li>
+          <li><a href="lore.html">Lore</a></li>
+          <li><a href="items.html">Items</a></li>
+          <li><a href="characterslist.html">Characters</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <h1>Your Characters</h1>
+    <!-- Link to the character creation page -->
+    <a href="character_creation.html" class="create-character">Create New Character</a>
+    <div id="character-list">
+      <p>Loading characters...</p>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Ritual TTRPG. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- If you are sharing the supabase client through a module, you can remove this extra script -->
+  <script type="module" src="src/index.js"></script>
+</body>
+</html>

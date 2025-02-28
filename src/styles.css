@@ -299,3 +299,41 @@ textarea {
   color: #f0f0f0;
   font-size: 1rem;
 }
+
+/* Additional inline CSS for character list display */
+.character-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.character-card h2 {
+  font-family: 'Cinzel', serif;
+  color: #e0b27a;
+}
+.character-card p {
+  margin: 0.5rem 0;
+}
+.character-card a {
+  color: #d17a22;
+  text-decoration: none;
+}
+.character-card a:hover {
+  text-decoration: underline;
+}
+/* Style for the Create New Character link */
+.create-character {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #d17a22;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+.create-character:hover {
+  background-color: #b35e1f;
+}
