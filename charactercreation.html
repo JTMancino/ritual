@@ -128,6 +128,7 @@
         backstory: formData.get('backstory'),
         current_health: parseInt(formData.get('max_health')),
         max_health: parseInt(formData.get('max_health')),
+        current_level: 1,
         current_focus: parseInt(formData.get('max_focus')),
         max_focus: parseInt(formData.get('max_focus')),
         armor: 50,
@@ -145,6 +146,9 @@
         inventory: {
           pack:1,
           dagger:1
+        },
+        scars: {
+
         },
         user_id: session.user.id
       };
