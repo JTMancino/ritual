@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ritual TTRPG - Characters</title>
+  <title>Ritual TTRPG - Create Character</title>
   <link rel="stylesheet" href="src/styles.css" />
-  <!-- Inline auth check -->
   <script type="module">
+    // Auth check to ensure only logged-in users access this page
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
     const SUPABASE_URL = 'https://evutzmgyoqnlsihcgcog.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2dXR6bWd5b3FubHNpaGNnY29nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA2NDI2MzEsImV4cCI6MjA1NjIxODYzMX0.9D5nTnVLlBUZG-dPb3uTbV3usLnQ3c9fFVVdVOzhHDM';
-    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // Redirect to sign-in if not authenticated
+    window.supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     (async () => {
       const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        window.location.href = 'index.html';
-      }
+      if (!session) window.location.href = 'index.html';
     })();
   </script>
 </head>
@@ -30,25 +26,141 @@
           <li><a href="home.html">Home</a></li>
           <li><a href="rules.html">Rules</a></li>
           <li><a href="bestiary.html">Bestiary</a></li>
-          <li><a href="items.html">Shop</a></li>
-          <li><a href="characters.html">Characters</a></li>
           <li><a href="lore.html">Lore</a></li>
+          <li><a href="items.html">Items</a></li>
+          <li><a href="characters.html">Characters</a></li>
         </ul>
       </div>
     </nav>
   </header>
-
   <main class="container">
-    <h1>Characters</h1>
-    <p>Placeholder content for the Characters page, which will host a tool for creating and storing characters. It's why you have to sign in.</p>
-  </main>
+    <h1>Create Your Character</h1>
+    <form id="character-form">
+      <!-- Basic Info Section -->
+      <fieldset>
+        <legend>Basic Info</legend>
+        <label for="char-name">Name:</label>
+        <input type="text" id="char-name" name="name" required />
 
+        <label for="char-backstory">Backstory:</label>
+        <textarea id="char-backstory" name="backstory" rows="4" placeholder="Enter your character's backstory"></textarea>
+      </fieldset>
+
+      <!-- Health and Focus Trackers -->
+      <fieldset>
+        <legend>Trackers</legend>
+
+        <label for="max-health">Max Health:</label>
+        <input type="number" id="max-health" name="max_health" min="4" required />
+
+        <label for="max-focus">Max Focus:</label>
+        <input type="number" id="max-focus" name="max_focus" min="1" required />
+
+      </fieldset>
+
+      <!-- Selections: Race, Class, and Subclass -->
+      <fieldset>
+        <legend>Selections</legend>
+        <label for="race">Race:</label>
+        <select id="race" name="race" required>
+          <option value="">Select Race</option>
+          <option value="human">Firstborn (Human)</option>
+          <option value="earthspawn">Earthspawn</option>
+          <option value="skyspawn">Skyspawn</option>
+          <option value="seaspawn">Seaspawn</option>
+          <option value="flamespawn">Flamespawn</option>
+          <!-- More races as needed -->
+        </select>
+
+        <label for="class">Class:</label>
+        <select id="class" name="class" required>
+          <option value="">Select Class</option>
+          <option value="warrior">Arcanist</option>
+          <option value="mage">Frontiersman</option>
+          <option value="rogue">Soldier</option>
+          <!-- More classes as needed -->
+        </select>
+
+        <label for="subclass">Subclass:</label>
+        <select id="subclass" name="subclass" required>
+          <option value="">Select Subclass</option>
+          <option value="berserker">Berserker</option>
+          <option value="elementalist">Elementalist</option>
+          <option value="assassin">Assassin</option>
+          <!-- More subclasses as needed -->
+        </select>
+      </fieldset>
+
+      <!-- Ability Points Distribution -->
+      <fieldset>
+        <legend>Ability Points Distribution</legend>
+        <p>You have a pool of 50 points to distribute among these abilities:</p>
+        <label for="brawn">Brawn:</label>
+        <input type="number" id="brawn" name="brawn" min="1" max="51" value="1" required />
+
+        <label for="dexterity">Dexterity:</label>
+        <input type="number" id="dexterity" name="dexterity" min="1" max="51" value="1" required />
+
+        <label for="intelligence">Intelligence:</label>
+        <input type="number" id="intelligence" name="intelligence" min="1" max="51" value="1" required />
+
+        <label for="Willpower">Willpower:</label>
+        <input type="number" id="Willpower" name="Willpower" min="1" max="51" value="1" required />
+
+        <label for="charisma">Charisma:</label>
+        <input type="number" id="charisma" name="charisma" min="1" max="51" value="1" required />
+
+        <p>Total allocated: <span id="allocated-total">50</span> points</p>
+      </fieldset>
+
+      <button type="submit">Create Character</button>
+    </form>
+  </main>
   <footer class="footer">
     <div class="container">
       <p>&copy; 2025 Ritual TTRPG. All rights reserved.</p>
     </div>
   </footer>
-  
-  <script type="module" src="src/index.js"></script>
+
+  <!-- Character Form Submission Script -->
+  <script type="module">
+    const form = document.getElementById('character-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const characterData = {
+        name: formData.get('name'),
+        backstory: formData.get('backstory'),
+        current_health: parseInt(formData.get('max_health')),
+        max_health: parseInt(formData.get('max_health')),
+        current_focus: parseInt(formData.get('max_focus')),
+        max_focus: parseInt(formData.get('max_focus')),
+        race: formData.get('race'),
+        class: formData.get('class'),
+        subclass: formData.get('subclass'),
+        ability_points: {
+          brawn: parseInt(formData.get('brawn')),
+          dexterity: parseInt(formData.get('dexterity')),
+          constitution: parseInt(formData.get('constitution')),
+          intelligence: parseInt(formData.get('intelligence')),
+          Willpower: parseInt(formData.get('Willpower')),
+          charisma: parseInt(formData.get('charisma'))
+        }
+      };
+
+      const { data, error } = await supabase
+        .from('characters')
+        .insert([characterData]);
+
+      if (error) {
+        alert('Error creating character: ' + error.message);
+      } else {
+        alert('Character created successfully!');
+        // Optionally redirect to a character list or details page
+        window.location.href = 'home.html';
+      }
+    });
+  </script>
 </body>
 </html>
