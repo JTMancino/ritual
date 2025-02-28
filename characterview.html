@@ -133,21 +133,24 @@
       <!-- Health & Focus Trackers -->
       <fieldset>
         <legend>Health & Focus</legend>
+        <label for="current-level">Level:</label>
+        <input type="number" id="current-level" name="current_level" min="1" required>
+        <br>
         <label for="current-health">Current Health:</label>
         <input type="number" id="current-health" name="current_health" min="0" required>
-
+        <br>
         <label for="max-health">Max Health:</label>
         <input type="number" id="max-health" name="max_health" min="1" required>
-
+        <br>
         <label for="current-focus">Current Focus:</label>
         <input type="number" id="current-focus" name="current_focus" min="0" required>
-
+        <br>
         <label for="max-focus">Max Focus:</label>
         <input type="number" id="max-focus" name="max_focus" min="1" required>
       </fieldset>
       <!-- Attributes & Equipment -->
       <fieldset>
-        <legend>Attributes & Equipment</legend>
+        <legend>Attributes</legend>
         <label for="armor">Armor:</label>
         <input type="text" id="armor" name="armor">
         <br>
@@ -162,7 +165,7 @@
       </fieldset>
       <!-- Ability Points & Inventory (JSON Editing) -->
       <fieldset>
-        <legend>Ability Points & Inventory</legend>
+        <legend>Abilities & Inventory</legend>
         <label for="ability_points">Ability Points (JSON):</label>
         <textarea id="ability_points" name="ability_points" rows="5"></textarea>
         <br>
