@@ -81,7 +81,8 @@
           class: document.getElementById('class').value,
           subclass: document.getElementById('subclass').value,
           ability_points: JSON.parse(document.getElementById('ability_points').value),
-          inventory: JSON.parse(document.getElementById('inventory').value)
+          inventory: document.getElementById('inventory').value,
+          scars: document.getElementById('scars').value
         };
 
         const { data, error } = await supabase
@@ -169,11 +170,11 @@
         <label for="ability_points">Ability Points (JSON):</label>
         <textarea id="ability_points" name="ability_points" rows="5"></textarea>
         <br>
-        <label for="inventory">Inventory (JSON):</label>
-        <textarea id="inventory" name="inventory" rows="5"></textarea>
+        <label for="inventory">Inventory:</label>
+        <textarea id="inventory" name="inventory" rows="4"></textarea>
         <br>
-        <label for="scars">Scars (JSON):</label>
-        <textarea id="inventory" name="inventory" rows="5"></textarea>
+        <label for="scars">Scars:</label>
+        <input type="text" id="scars" name="scars">
       </fieldset>
       <button type="submit">Save Character</button>
     </form>

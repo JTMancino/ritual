@@ -18,8 +18,8 @@ CREATE TABLE IF NOT EXISTS characters (
   class text,
   subclass text,
   ability_points jsonb,  -- Example: {"brawn":10, "dexterity":10, ...}
-  inventory jsonb,  -- Example: {"light armor":1, "torch":3, ...}
-  scars jsonb,  -- Example: {"concussion":1, "lost limb":2, ...}
+  inventory text,  
+  scars text,  
   created_at timestamp with time zone DEFAULT now()
 );
 
