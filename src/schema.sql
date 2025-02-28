@@ -15,6 +15,6 @@ CREATE TABLE IF NOT EXISTS characters (
   race text,
   class text,
   subclass text,
-  ability_points jsonb,  -- Example: {"strength":10, "dexterity":10, ...}
+  ability_points jsonb,  -- Example: {"brawn":10, "dexterity":10, ...}
   created_at timestamp with time zone DEFAULT now()
 );

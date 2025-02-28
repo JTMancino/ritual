@@ -271,3 +271,31 @@ table tr:hover {
   font-size: 0.9rem;
   color: #f0f0f0;
 }
+
+/* Single-line Text Field Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  max-width: 400px; /* Limits the field's width */
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  font-size: 1rem;
+}
+
+/* Multi-line Text Field (Textarea) Styling */
+textarea {
+  width: 100%;
+  max-width: 600px; /* Adjust as needed */
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  font-size: 1rem;
+}

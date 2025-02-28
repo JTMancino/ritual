@@ -81,13 +81,6 @@
           <!-- More classes as needed -->
         </select>
 
-        <label for="subclass">Subclass:</label>
-        <select id="subclass" name="subclass" required>
-          <option value="">Select Subclass</option>
-          <option value="berserker">Berserker</option>
-          <option value="elementalist">Elementalist</option>
-          <option value="assassin">Assassin</option>
-          <!-- More subclasses as needed -->
         </select>
       </fieldset>
 
@@ -138,7 +131,7 @@
         max_focus: parseInt(formData.get('max_focus')),
         race: formData.get('race'),
         class: formData.get('class'),
-        subclass: formData.get('subclass'),
+        subclass: 'None',
         ability_points: {
           brawn: parseInt(formData.get('brawn')),
           dexterity: parseInt(formData.get('dexterity')),
