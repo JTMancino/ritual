@@ -280,15 +280,18 @@ table tbody tr:hover {
 
 .race-options {
   display: flex;
-  justify-content: space-between; /* Evenly distributes the images */
+  flex-wrap: nowrap;       /* Prevent wrapping so they stay on one line */
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem; /* Adds space between them */
+  gap: 1rem;               /* Space between images */
   margin: 2rem 0;
 }
 
+/* Each image will take roughly 20% of the container's width minus the gap */
 .race-options img {
-  flex: 1 1 calc(20% - 1rem); /* Each image takes roughly 20% of the container's width minus the gap */
-  max-width: 100%;
+  flex: 0 0 calc(20% - 1rem); 
+  max-width: calc(20% - 1rem);
+  width: 100%;             /* Ensures the image scales within its flex basis */
   height: auto;
   border: 1px solid #333;
   border-radius: 8px;
