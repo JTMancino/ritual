@@ -4,23 +4,9 @@
   <link rel="shortcut icon" href="/resources/favicon.ico" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ritual TTRPG - Home</title>
+  <title>Ritual TTRPG - Policies</title>
   <link rel="stylesheet" href="src/styles.css" />
-  <!-- Inline auth check -->
-  <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-    const SUPABASE_URL = 'https://evutzmgyoqnlsihcgcog.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2dXR6bWd5b3FubHNpaGNnY29nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA2NDI2MzEsImV4cCI6MjA1NjIxODYzMX0.9D5nTnVLlBUZG-dPb3uTbV3usLnQ3c9fFVVdVOzhHDM';
-    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // Redirect to sign-in if not authenticated
-    (async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        window.location.href = 'index.html';
-      }
-    })();
-  </script>
 </head>
 <body>
   <header>
@@ -40,15 +26,19 @@
   </header>
 
   <main class="container">
-    <h1>Welcome to Ritual TTRPG</h1>
-    <p>This is the online resource hub for Ritual TTRPG, a tabletop role playing game by John Mancino. Learn about the various creatures and spirits you may face by reading the bestiary, indulge in a world of original lore, study the mechanical rules of the game, or use the built in tool to create and save your own characters.</p>
-    <hr>
+    <h1>Statement of Policy</h1>
+    <p>Continued use of this site constitutes acknowledgment and acceptance as applicable of all stated policies.</p>
     <br>
-    <p>Stay tuned for the first official adventure module, Rise of the Ratkin. When the Mistveil Marshalls disappear right before a swarm of mysterious new creatures begins to plague their jurisdiction, who will protect the roads between the mountain towns and villages?</p>
-    <img src="resources/WesternComicOutlaw.webp" alt="A dark, brooding outlaw prepares for trouble." class="home-image">
-    <p><strong>AI disclaimer and policy:</strong> Some of the source code for this website was generated with artificial intelligence tools. It has been manually reviewed by humans for safety and security. Some or all images displayed on this website are created with generative artificial intelligence technology. While this site and its resources remain free, this will continue to be the case. No paid content will ever display images created with generative artificial intelligence tools.</p>
-    <p><strong>Privacy Policy:</strong>This site is hosted by github pages, and inherits its privacy policy. User authentication and database management are handled through Supabase, and inherit its privacy policy.</p>
-    <p><strong>Terms of use:</strong>This site is hosted by github pages, and inherits its privacy policy. User authentication and database management are handled through Supabase, and inherit its privacy policy.</p>
+    <h2>Privacy Policy</h2>
+    <p>This site is hosted on github pages, and user authentication as well as database management is run through Supabase. This site therefore inherits both of their privacy policies, as applicable. No information is collected about users outside of these functions. Your Supabase authentication account, associated with your email, is used to tie your identity to the characters you create so that you can access them later and to prevent others from accessing and altering characters you create without permission.</p>
+    <br>
+    <p>If you would like to delete your account or any data associated with it, you may contact me at my personal email john.t.mancino@gmail.com. If I do not respond within a reasonable or convenient period, or if you prefer not to contact me directly, please contact Supabase for support.</p>
+    <br>
+    <h2>Terms of Use</h2>
+    <p>In no way are you to use this site or any of the resources it provides to attack, harass, bully, discriminate against, or otherwise violate the personal rights and freedoms of another person. You may not copy, download, or republish any element of this site or its resources without express written permission. You must avoid the use of real slurs (as distinct from those employed only fictionally in the Ritual mythos), hate speech against real people or groups, advocacy for real violence, or similarly dangerous intent in the character creator. The character creation tool and all associated databases are intended to create representations of fictional characters in the world of Ritual and should not be used for any other purpose.</p>
+    <h2>Artificial Intelligence Policy</h2>
+    <p>Some of the code used in the creation of this website was created with generative artificial intelligence large language model (LLM) tools. All code produced with LLM assistance has been manually reviewed by humans to ensure safety and security. Some or all images displayed on this website are made with generative artificial intelligence tools, and while the site remains free this will continue to be the case. No paid content will ever directly feature artificial intelligence artwork.</p>
+
 </main>
     
     
