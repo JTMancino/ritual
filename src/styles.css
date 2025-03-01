@@ -266,18 +266,6 @@ table tbody tr:hover {
   }
 }
 
-.home-image {
-  display: block;
-  /* Remove width: 100%; let the image size itself up to its max width */
-  width: auto;
-  max-width: 800px;  /* Image will never be wider than 800px */
-  margin: 2rem auto; /* Center the image and add vertical spacing */
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
-  object-fit: cover;
-  filter: brightness(0.95);
-}
-
 .race-options {
   display: flex;
   flex-wrap: nowrap;       /* Prevent wrapping so they stay on one line */
