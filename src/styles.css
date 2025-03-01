@@ -277,3 +277,25 @@ table tbody tr:hover {
   object-fit: cover;
   filter: brightness(0.95);
 }
+
+.race-options {
+  display: flex;
+  justify-content: space-between; /* Evenly distributes the images */
+  align-items: center;
+  gap: 1rem; /* Adds space between them */
+  margin: 2rem 0;
+}
+
+.race-options img {
+  flex: 1 1 calc(20% - 1rem); /* Each image takes roughly 20% of the container's width minus the gap */
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.race-options img:hover {
+  transform: scale(1.05);
+}
