@@ -7,6 +7,19 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+if (window.location.hash && window.location.hash.includes('access_token')) {
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    if (session) {
+      // Remove the hash and redirect after the session is confirmed
+      window.history.replaceState({}, document.title, window.location.pathname);
+      window.location.href = 'home.html';
+    } else {
+      console.error('No session found.');
+    }
+  });
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const signupForm = document.getElementById('signup-form');
   const loginForm = document.getElementById('login-form');
