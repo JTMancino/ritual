@@ -517,7 +517,7 @@
       <hr>
       <p>4.2 Armor is a measure of how likely a creature is to be hit. The base armor of a Fatebound is fifty, meaning there is a 50% chance that they will be hit by a creature targeting them. This number can be increased by abilities and items, but can never exceed 90 for Fatebound or NPCs unless specifically overruled by The Auran.</p>
       <hr>
-      <p>Hit points are a measure of a creatures health. Damage reduces the current hit points as opposed to the maximum, and when it hits zero a scar will form. For unimportant NPCs, a scar will typically mean instant death. For Fatebound and legendary NPCs however, up to three scars may be accrued before a hit becomes fatal. The fourth scar will kill you instantly. When you get a scar, roll 1d6. Consult the table below to see what kind will form. Hitpoints cannot go negative, and once your hitpoints are brought to zero you only need to track sources of damage, not quantity.</p>
+      <p>Hit points are a measure of a creatures health. Damage reduces the current hit points as opposed to the maximum, and when it hits zero a scar will form. For unimportant NPCs, a scar will typically mean instant death. For Fatebound and legendary NPCs however, up to three scars may be accrued before a hit becomes fatal. The fourth scar will kill you instantly. When you get a scar, roll 1d12. Consult the table below to see what kind will form. Hitpoints cannot go negative, and once your hitpoints are brought to zero you only need to track sources of damage, not quantity.</p>
       <table>
         <thead>
           <tr>
@@ -528,27 +528,51 @@
         <tbody>
           <tr>
             <td>1</td>
-            <td>You lose a limb. Choose between losing a leg and permanently halving your movement speed or losing an arm and being permanently unable to carry multiple weapons or items.</td>
+            <td>You lose a limb. Roll 1d4, or 1d6 if you are a Skyspawn. On a 1-2 you lose an arm, on a 3-4 you lose a leg, and on a 5-6 you lose a wing. Even when the scar is healed, your limb will not naturally regrow.</td>
           </tr>
           <tr>
             <td>2</td>
-            <td>You break a limb. Choose between halving your movement speed until you are healed of this scar and being unable to carry multiple weapons or items until you are healed of this scar.</td>
+            <td>You break an arm. Choose your left or right arm. Items heavier than one pound can no longer be lifted by that arm, and you can not make attacks with it until this scar is healed.</td>
           </tr>
           <tr>
-            <td>3</td> 
-            <td>You sprain your ankle, you stumble and drop what you are carrying.</td>
+            <td>3</td>
+            <td>You are struck in the head and fall unconscious. You can do nothing until you wake up. An ally can wake you with an action, but on your turn the only action you can take is to roll 1d10. On a 10, you rouse yourself.</td>
           </tr>
           <tr>
             <td>4</td>
-            <td>You hit your head and fall unconscious. You are incapacitated until you wake up. An ally can wake you up with an action, but on your turn the only action you can take is a 10% random chance of rousing yourself.</td>
+            <td>You break a leg or, if you are a Skyspawn, roll 1d4. On a 1-2 you break a leg, on a 3-4 you break a wing. Choose an appropriate limb, if it is a leg you may not take the move action to walk or swim more than once per turn until this scar is healed. If it is a wing, you cannot fly until this scar is healed.</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>You are losing too much blood. Your maximum hitpoints are reduced by three until this scar is healed.</td>
           </tr>
           <tr>
             <td>5</td>
-            <td>You dislocate your shoulder. Enemies you attack have ten more armor until this scar is healed.</td>
+            <td>Your wound is infected, or dirtied. Until this scar is healed, all sources of healing are reduced by one to a minimum of one.</td>
           </tr>
           <tr>
             <td>6</td>
-            <td>Your life flashes before your eyes and you realize there is still much to live for. Though you are still brought closer to death by this mental scar, heal 1d4 hitpoints and rejoin the fight.</td>
+            <td>The stress of combat overtakes you. On your next turn, you may take only the move and prepare actions.</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Blood streams down your face, obstructing your vision. You cannot see further than five feet by normal means for one minute.</td>
+          </tr>
+          <tr>
+            <td>10</td> 
+            <td>You twist your ankle, causing you to stumble and drop what you were carrying in your hands.</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Your body is brutally damaged. This wound will leave a grisly visual scar, even long after it is healed.</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>The fear of combat overtakes you, and you briefly lose control. Roll 1d4. On a 1-2 you urinate in your armor. On a 2-4 you likewise defecate. Flamespawn are immune to this effect, though they still are scarred.</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Your life flashes before your eyes and you realize there is still much to live for. Though you are still brought closer to death by this mental scar, heal 1d4 hitpoints and rejoin the fight if you are still alive.</td>
           </tr>
         </tbody>
       </table>
